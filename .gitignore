@@ -1,1 +1,4 @@
 .env
+.env.influxdb2-admin-username
+.env.influxdb2-admin-password
+.env.influxdb2-admin-token

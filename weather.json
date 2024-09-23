@@ -1,17 +1,1 @@
-{
-    "location": {
-        "lat": "43.56704 N",
-        "lon": "116.24053 W",
-        "elev": 2822
-    },
-    "name": "KBOI",
-    "sensors": {
-        "temperature": 48,
-        "dew_point": 34,
-        "humidity": 61,
-        "wind": 9,
-        "direction": "NW",
-        "pressure": 30.23
-    },
-    "updated": "25 Oct 12:05 PM MDT"
-}
+{"sensor_id": "sensor-01", "timestamp": "2024-09-20T21:42:18Z", "distance_cm": 25.2, "temperature_celsius": 27.8, "status": "OK"}
