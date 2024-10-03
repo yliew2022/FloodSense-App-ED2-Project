@@ -4,7 +4,6 @@
 
 import { InfluxDB, Point } from '@influxdata/influxdb-client'
 import 'dotenv/config'
-import {readFileSync} from 'fs'
 import { spawn } from 'child_process';
 /*const url = process.env.INFLUX_URL
 const token = process.env.INFLUX_TOKEN
@@ -43,11 +42,8 @@ const pythonProcess = spawn('python', ['generate.py']);
 pythonProcess.stdout.on('data', (data) => {
   console.log('Received data from Python: ', data.toString());
   try {
-      // Parse the incoming JSON data
       const sensorData = JSON.parse(data.toString());
       console.log('Parsed JSON data: ', sensorData);
-
-      // Create a point for InfluxDB
       const point = new Point('test_data')
           .tag('sensor_id', sensorData.sensor_id)
           .stringField('timestamp', sensorData.timestamp)
@@ -55,6 +51,11 @@ pythonProcess.stdout.on('data', (data) => {
           .floatField('temperature_celsius', sensorData.temperature_celsius)
           .stringField('status', sensorData.status);
       writeApi.writePoint(point);
+      writeApi.flush().then(() => {
+        console.log('Data flushed to InfluxDB immediately');
+      }).catch((err) => {
+        console.error('Error during data flush: ', err);
+      });
       console.log(`Data written to InfluxDB: ${JSON.stringify(sensorData)}`);
 
   } catch (err) {
@@ -62,11 +63,9 @@ pythonProcess.stdout.on('data', (data) => {
   }
 });
 
-
 pythonProcess.stderr.on('data', (data) => {
   console.error(`Python error: ${data.toString()}`);
 });
-
 
 const gracefulShutdown = () => {
   console.log('Received SIGINT. Flushing data to InfluxDB...');
