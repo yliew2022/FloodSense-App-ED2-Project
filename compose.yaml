@@ -1,3 +1,7 @@
+# MAKE SURE TO SET min_refresh_interval = 1s in grafana.ini in Docker
+# Also make dashboard public
+# Then set auto refresh every 1s and refresh live dashboard to true
+
 version: '3'
 networks:
   monitoring:
@@ -28,7 +32,7 @@ services:
       - influxdb2
     image: grafana/grafana
     ports:
-      - 443:3000   # Expose HTTPS port 443 instead of 3000
+      - 443:3000
     environment:
       - GF_SERVER_PROTOCOL=https
       - GF_SERVER_CERT_FILE=/etc/ssl/certs/cert.pem
