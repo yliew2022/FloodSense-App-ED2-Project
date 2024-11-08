@@ -16,7 +16,7 @@ fetch(`https://api.tomorrow.io/v4/weather/realtime?location=${location}&apikey=$
     writeApi.useDefaultTags({ region: 'west' })
     const writeWeather = new Point('weatherData')
         .tag('location', location)
-        .floatField('cloudBase', data.data.values.cloudBase)
+        //.floatField('cloudBase', data.data.values.cloudBase)
         //.floatField('cloudCeiling', data.data.values.cloudCeiling)
         .floatField('cloudCover', data.data.values.cloudCover)
         .floatField('dewPoint', data.data.values.dewPoint)
