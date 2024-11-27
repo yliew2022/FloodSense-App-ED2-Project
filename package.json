@@ -19,6 +19,8 @@
     "@influxdata/influxdb-client-apis": "^1.35.0",
     "dotenv": "^16.4.5",
     "https": "^1.0.0",
-    "leaflet": "^1.9.4"
+    "kafka-node": "^5.0.0",
+    "leaflet": "^1.9.4",
+    "serialport": "^12.0.0"
   }
 }
