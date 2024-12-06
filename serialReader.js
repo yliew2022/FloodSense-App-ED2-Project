@@ -62,7 +62,7 @@ setInterval(() => {
     // Kafka payload
     const payloads = [
       {
-        topic: 'sensor',
+        topic: 'cluster',
         messages: JSON.stringify(lastSensorData),
         partition: 0,
       },
