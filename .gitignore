@@ -2,3 +2,9 @@
 .env.influxdb2-admin-username
 .env.influxdb2-admin-password
 .env.influxdb2-admin-token
+key.pem
+cert.pem
+certs/cert.pem
+certs/key.pem
+node_modules
+/node_modules
